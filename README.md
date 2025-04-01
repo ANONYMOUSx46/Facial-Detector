@@ -1,7 +1,7 @@
 # 🌟 Welcome to Lumeo Facial Detector
 Lumeo is a cutting-edge face detection and recognition application that combines retro aesthetics with modern web technologies. Leveraging OpenCV, this app provides real-time facial analysis and celebrity matching—all while respecting user privacy by processing data locally in the browser.
 
-##🎨 Features
+## 🎨 Features
 Real-Time Webcam Detection : Detect faces directly from your webcam feed.
 Facial Analysis :
 Facial landmark detection.
