@@ -1,0 +1,375 @@
+/* Tailwind Base Layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Space+Mono:wght@400;700&family=Press+Start+2P&display=swap');
+
+/* Base Layer Styles */
+@layer base {
+  :root {
+    --background: 235 85% 97%;
+    --foreground: 270 60% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 270 60% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 270 60% 10%;
+    --primary: 266 70% 60%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 180 100% 50%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 340 82% 52%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 262 83.3% 57.8%;
+    --radius: 0.25rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 270 60% 3%;
+    --foreground: 210 40% 98%;
+    --card: 270 60% 5%;
+    --card-foreground: 210 40% 98%;
+    --popover: 270 60% 5%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 266 70% 60%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 180 100% 50%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 270 50% 15%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 340 82% 52%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 270 50% 15%;
+    --input: 270 50% 15%;
+    --ring: 262.1 83.3% 57.8%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 262 83.3% 57.8%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 262.1 83.3% 57.8%;
+  }
+}
+
+/* Global Styles */
+* {
+  @apply border-border;
+}
+
+body {
+  @apply bg-background text-foreground relative;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+  font-family: 'Space Mono', monospace;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2,
+h3 {
+  @apply font-bold;
+  font-family: 'Press Start 2P', cursive;
+}
+
+h4,
+h5,
+h6 {
+  font-family: 'VT323', monospace;
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent;
+  letter-spacing: 1px;
+}
+
+.retro-border {
+  @apply border-4 border-double shadow-[6px_6px_0px_rgba(0,0,0,0.2)];
+}
+
+.retro-card {
+  @apply bg-white/70 backdrop-blur-sm border-4 border-double rounded-sm shadow-[6px_6px_0px_rgba(0,0,0,0.2)];
+}
+
+.retro-button {
+  @apply border-4 border-double shadow-[4px_4px_0px_rgba(0,0,0,0.2)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all;
+}
+
+.face-detection-box {
+  @apply border-4 border-accent rounded-sm absolute transition-all duration-300;
+  box-shadow: 0 0 0 2px rgba(240, 40, 100, 0.4), inset 0 0 20px rgba(240, 40, 100, 0.2);
+  backdrop-filter: brightness(1.1) saturate(1.2);
+}
+
+.glass-effect {
+  @apply bg-white/10 backdrop-blur-lg border border-white/30 rounded-sm shadow-xl;
+}
+
+.highlight-dot {
+  @apply w-2 h-2 bg-accent absolute animate-pulse;
+  box-shadow: 0 0 8px rgba(240, 40, 100, 0.8);
+}
+
+.face-landmark {
+  @apply absolute w-1.5 h-1.5 bg-secondary rounded-full animate-pulse-light;
+  box-shadow: 0 0 6px rgba(0, 255, 255, 1);
+}
+
+.glow-effect {
+  text-shadow: 0 0 15px rgba(139, 92, 246, 0.7);
+}
+
+.neo-card {
+  @apply bg-white/70 backdrop-blur-md border-4 border-double border-white/40 rounded-sm shadow-[6px_6px_0px_rgba(0,0,0,0.2)];
+}
+
+.scanline {
+  @apply absolute top-0 left-0 w-full h-full pointer-events-none z-10;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    rgba(0, 0, 0, 0.05) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+  animation: scanline 10s linear infinite;
+}
+
+.crt-effect:before {
+  content: " ";
+  @apply absolute top-0 left-0 bottom-0 right-0 z-10 pointer-events-none;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+  background-size: 100% 4px;
+}
+
+.vhs-effect {
+  @apply relative overflow-hidden;
+}
+
+.vhs-effect:after {
+  content: "";
+  @apply absolute top-0 left-0 w-full h-full z-10 pointer-events-none;
+  background:
+    repeating-linear-gradient(to bottom, transparent 0px, rgba(255, 0, 140, 0.03) 1px, transparent 3px),
+    repeating-linear-gradient(to right, transparent 0px, rgba(0, 255, 255, 0.03) 1px, transparent 3px);
+}
+
+.noise-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.noise-effect::after {
+  content: "";
+  @apply absolute inset-0 z-10 pointer-events-none opacity-10;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  animation: noise 0.5s steps(2) infinite;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-white/20;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-primary/50;
+  border: 2px double rgba(255, 255, 255, 0.3);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/70;
+}
+
+.pixel-corners {
+  clip-path:
+    polygon(
+      0 8px, 4px 8px, 4px 4px, 8px 4px, 8px 0,
+      calc(100% - 8px) 0, calc(100% - 8px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 8px, 100% 8px,
+      100% calc(100% - 8px), calc(100% - 4px) calc(100% - 8px), calc(100% - 4px) calc(100% - 4px), calc(100% - 8px) calc(100% - 4px), calc(100% - 8px) 100%,
+      8px 100%, 8px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 8px), 0 calc(100% - 8px)
+    );
+}
+
+.cyber-box {
+  @apply relative p-0.5 overflow-hidden;
+}
+
+.cyber-box::before {
+  content: "";
+  @apply absolute inset-0 bg-gradient-to-r from-accent via-secondary to-primary animate-hue-rotate;
+  z-index: -2;
+}
+
+.cyber-box::after {
+  content: "";
+  @apply absolute bg-background inset-0.5;
+  z-index: -1;
+}
+
+.loading-bar {
+  @apply h-1 bg-gradient-to-r from-accent via-secondary to-primary relative overflow-hidden;
+}
+
+.loading-bar::after {
+  content: "";
+  @apply absolute top-0 -left-full w-full h-full bg-white/30;
+  animation: loading-bar 1.5s infinite;
+}
+
+.circuit-bg {
+  background-image:
+    radial-gradient(circle at 25px 25px, rgba(0, 255, 255, 0.2) 2px, transparent 0),
+    radial-gradient(circle at 75px 75px, rgba(255, 0, 255, 0.2) 2px, transparent 0),
+    linear-gradient(to right, rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 0, 255, 0.1) 1px, transparent 1px);
+  background-size: 100px 100px;
+}
+
+.retro-terminal {
+  @apply font-space-mono text-secondary relative;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.7);
+}
+
+.retro-terminal::after {
+  content: "|";
+  @apply animate-blink;
+}
+
+.matched-person {
+  @apply mt-4 p-4 neo-card;
+}
+
+.match-result {
+  @apply flex items-center gap-4;
+}
+
+.match-avatar {
+  @apply w-12 h-12 bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold overflow-hidden retro-border relative;
+}
+
+.match-avatar::after {
+  content: "";
+  @apply absolute inset-0 bg-black/10;
+}
+
+.match-details {
+  @apply flex-1;
+}
+
+.match-name {
+  @apply font-bold text-lg;
+  font-family: 'VT323', monospace;
+  letter-spacing: 1px;
+}
+
+.match-confidence {
+  @apply text-sm text-gray-600;
+}
+
+.face-match-badge {
+  @apply absolute -top-10 left-0 bg-gradient-to-r from-primary to-accent text-white text-xs px-3 py-1.5 rounded-sm shadow-lg retro-border;
+  font-family: 'VT323', monospace;
+  letter-spacing: 1px;
+}
+
+.retro-grid {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(255, 0, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+}
+
+.retro-header {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+}
+
+.grid-lines {
+  background-size: 50px 50px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.grid-fade {
+  background: linear-gradient(to bottom, transparent, rgba(10, 10, 30, 0.5));
+  mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
+}
+
+/* Keyframes */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.glitch {
+  animation: glitch 0.5s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+.glitch:hover {
+  animation-play-state: running;
+}
+
+@keyframes pulse-border {
+  0% {
+    box-shadow: 0 0 0 0 rgba(240, 40, 100, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(240, 40, 100, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(240, 40, 100, 0);
+  }
+}
+
+.pulse-border {
+  animation: pulse-border 2s infinite;
+}
+
+@keyframes loading-bar {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
